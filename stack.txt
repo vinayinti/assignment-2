@@ -1,0 +1,58 @@
+#include <stdio.h>
+#include <stdlib.h>
+struct node
+{
+    int data;
+    struct node *link;
+};
+typedef struct node node;
+
+node *top=NULL;
+void push(int x)
+{
+    node *tmp;
+    tmp = (node*)malloc(sizeof(node));
+    tmp -> data = x;
+    tmp -> link = top;
+    top = tmp;
+}
+
+int pop()
+{
+    node *tmp;
+    int n;
+    tmp = top;
+    n = tmp->data;
+    top = top->link;
+    free(tmp);
+    return n;
+}
+
+int Peek()
+{
+    return top->data;
+}
+void display(node *head)
+{
+    if(head == NULL)
+    {
+        printf("empty stack\n");
+    }
+    else
+    {
+        printf("%d\n", head -> data);
+        display(head->link);
+    }
+}
+
+int main()
+{
+    push(1);
+    push(2);
+    push(3);
+    printf("The top is %d\n",Peek());
+    pop();
+    printf("The elements after the first pop are\n");
+    display(top);
+}
+

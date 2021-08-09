@@ -1,0 +1,28 @@
+#include<stdio.h>
+void main()
+{
+	int i,j;
+	char choice;
+	
+		printf("a=add s=sub\n");
+		scanf("%c",&choice);
+		switch(choice)
+		{
+			case 'a':
+				printf("\nenter two numbers");
+				scanf("\n%d %d",&i,&j);
+				printf("\n sum =%d\n",i+j);
+				break;
+			case 's':
+				printf("\nenter two numbers:");
+				scanf("\n%d %d",&i,&j);
+				printf("\ndifference =%d\n",i-j);
+				break;
+			default:
+				printf("No action\n");
+				break;
+		}
+	
+	
+}
+
